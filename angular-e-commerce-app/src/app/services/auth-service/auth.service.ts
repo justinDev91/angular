@@ -20,7 +20,6 @@ export class AuthService {
   }
 
   login(username: string, password: string): any {
-    console.log(username, password)
     return this.http.post<[]>(BASIC_URL + 'authenticate',
       { username, password },
       { observe: 'response' })
