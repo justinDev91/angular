@@ -24,7 +24,7 @@ export class AuthService {
       { username, password },
       { observe: 'response' })
       .pipe(
-        tap(_ => this.log("User Authentication")),
+        tap(_ => this.log("User Authentication success")),
         map((res: HttpResponse<any>) => {
           this.storageService.saveUserId(res.body.userId);
           this.storageService.saveUserRole(res.body.role);
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   log(message: string): void {
-    console.log(`User Auth Service: ${message}`)
+    console.log(`User Auth Service : ${message}`)
   }
 
 }
